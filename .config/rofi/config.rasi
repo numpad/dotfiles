@@ -1,0 +1,6 @@
+configuration {
+	font:				"Fantasque Sans Mono 13";
+}
+
+@theme "/home/chris/.config/rofi/themes/everforest.rasi"
+
