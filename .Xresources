@@ -1,0 +1,56 @@
+
+! Font rendering
+Xft.antialias:            true
+Xft.hinting:              true
+Xft.rgba:                 rgb
+Xft.autohint:             false
+Xft.hintstyle:            hintfull
+Xft.lcdfilter:            lcddefault
+
+Xcursor.size: 16
+xterm*vt100*faceName: Fantasque Sans Mono:pixelsize=15:antialias=true:autohint=false:rgba=rgb
+xterm*termName: xterm-256color
+
+*internalBorder: 6
+*boldColors:false
+
+! Special
+*.foreground:   #d3c6aa
+*.background:   #2f383e
+*.cursorColor:  #a7c080
+
+! Black
+*.color0:       #4f5a5f
+*.color8:       #4f5a5f
+
+! Red
+*.color1:       #e67e80
+*.color9:       #e67e80
+
+! Green
+*.color2:       #a7c080
+*.color10:      #a7c080
+
+! Yellow
+*.color3:       #dbbc7f
+*.color11:      #dbbc7f
+
+! Blue
+*.color4:       #7fbbb3
+*.color12:      #7fbbb3
+
+! Magenta
+*.color5:       #d699b6
+*.color13:      #d699b6
+
+! Cyan
+*.color6:       #83c092
+*.color14:      #83c092
+
+! White
+*.color7:       #d3c6aa
+*.color15:      #d3c6aa
+
+! Bold, Italic, Underline
+*.colorBD:      #6c7680
+
