@@ -1,0 +1,245 @@
+[colors]
+
+# black
+color0        = #3b4252
+color8        = #4c566a
+# red
+color1        = #bf616a
+color9        = #bf616a
+# green
+color2        = #a3be8c
+color10       = #a3be8c
+# yellow
+color3        = #ebcb8b
+color11       = #ebcb8b
+# blue
+color4        = #81a1c1
+color12       = #81a1c1
+# magenta
+color5        = #b48ead
+color13       = #b48ead
+# cyan
+color6        = #88c0d0
+color14       = #8fbcbb
+# white
+color7        = #e5e9f0
+color15       = #eceff4
+# special
+background    = #2e3440
+muted         = #999ea6
+
+[bar/nord]
+background = ${colors.background}
+foreground = ${colors.color15}
+border-bottom-color = ${colors.background}
+border-bottom-size = 0
+wm-restack = bspwm
+bottom = false
+height = 24
+width = 100%
+
+font-0 = "Fantasque Sans Mono:style=Regular:size=12;2"
+font-1 = "FiraCode Nerd Font Mono:style=Regular:size=14;2"
+font-2 = "FiraCode Nerd Font Mono:style=Regular:size=18;3"
+padding = 0
+
+modules-left = wireless backlight volume empty bspwm menu-worklog
+modules-right = keys memory cpu temperature internal_battery battery storage
+modules-center = date
+
+[module/empty]
+type = custom/text
+content = "%{T1} %{T-}"
+
+[module/keys]
+type = internal/xkeyboard
+label-layout =
+label-indicator-on-capslock = " בּ "
+label-indicator-off-capslock = 
+label-indicator-on-scrolllock = 
+label-indicator-off-scrolllock = 
+label-indicator-on-capslock-foreground = ${colors.color1}
+
+[module/storage]
+type = internal/fs
+interval = 60
+mount-0 = /
+label-mounted = " %{T2}%{T-} %free% "
+label-unmounted = %mountpoint% not mounted
+label-mounted-foreground = ${colors.background}
+label-mounted-background = ${colors.color9}
+
+[module/cpu]
+type = internal/cpu
+label = " %{T1}%{T-} %percentage%% "
+label-foreground = ${colors.background}
+label-background = ${colors.color4}
+
+[module/memory]
+type = internal/memory
+label = " %{T2}%{T-} %percentage_used%% "
+label-foreground = ${colors.background}
+label-background = ${colors.color3}
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+format = <label>
+format-warn = <label-warn>
+label = "%{T2} %{T-} %temperature-c% "
+label-warn = " %{T2}%{T-} %temperature-c% "
+label-foreground = ${colors.background}
+label-background = ${colors.color14}
+label-warn-foreground = ${colors.color1}
+label-warn-background = ${colors.color14}
+
+[module/volume]
+type = internal/pulseaudio
+#sink = alsa_output.pci-0000_00_1f.3.analog-stereo
+sink = alsa_output.pci-0000_00_1f.3.hdmi-stereo-extra1
+use-ui-max = true
+format-muted = "<label-muted> "
+format-volume = "<label-volume> "
+label-volume = " %{T2}墳%{T-} %percentage%%"
+label-muted = " %{T2}婢%{T-} %percentage%%"
+format-volume-foreground = ${colors.background}
+format-volume-background = ${colors.color13}
+format-muted-foreground = ${colors.muted}
+format-muted-background = ${colors.color8}
+
+[module/bspwm]
+type = internal/bspwm
+enable-scroll = false
+label-focused = 
+label-occupied = 
+label-occupied-foreground = ${colors.muted}
+label-empty = 
+label-empty-foreground = ${colors.color8}
+label-urgent = 
+label-urgent-foreground = ${colors.color1}
+label-separator = " "
+format = "<label-state> "
+
+[module/wireless]
+type = internal/network
+interface = wlp4s0
+label-connected = %essid%
+format-connected = "<ramp-signal> <label-connected> "
+format-connected-background = ${colors.color10}
+format-connected-foreground = ${colors.background}
+ramp-signal-0 = " %{T2}直%{T-}"
+label-disconnected = " %{T2}睊%{T-} "
+format-disconnected = <label-disconnected>
+format-disconnected-background = ${colors.color9}
+label-disconnected-foreground = ${colors.background}
+
+[module/internal_battery]
+type = internal/battery
+battery = BAT0
+adapter = ACAD
+label-charging = "%percentage%% "
+label-discharging = "%percentage%% "
+label-full = "%percentage%% "
+ramp-capacity-0 = " %{T3}%{T-}"
+ramp-capacity-1 = " %{T3}%{T-}"
+ramp-capacity-2 = " %{T3}%{T-}"
+ramp-capacity-3 = " %{T3}%{T-}"
+ramp-capacity-4 = " %{T3}%{T-}"
+animation-discharging-0 = " %{T3}%{T-}"
+animation-discharging-1 = " %{T3}%{T-}"
+animation-discharging-2 = " %{T3}%{T-}"
+animation-discharging-3 = " %{T3}%{T-}"
+animation-discharging-4 = " %{T3}%{T-}"
+animation-charging-0 = " %{T3}%{T-}"
+animation-charging-1 = " %{T3}%{T-}"
+animation-charging-2 = " %{T3}%{T-}"
+animation-charging-3 = " %{T3}%{T-}"
+animation-charging-4 = " %{T3}%{T-}"
+format-charging = "<animation-charging> <label-charging>"
+format-discharging = "<animation-discharging> <label-discharging>"
+format-full = "%{T3} %{T-} <label-full>"
+format-charging-foreground = ${colors.background}
+format-discharging-foreground = ${colors.background}
+format-full-foreground = ${colors.background}
+format-charging-background = ${colors.color13}
+format-discharging-background = ${colors.color13}
+format-full-background = ${colors.color13}
+
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = ACAD
+label-charging = "%percentage%% "
+label-discharging = "%percentage%% "
+label-full = "%percentage%% "
+ramp-capacity-0 = " %{T3}%{T-}"
+ramp-capacity-1 = " %{T3}%{T-}"
+ramp-capacity-2 = " %{T3}%{T-}"
+ramp-capacity-3 = " %{T3}%{T-}"
+ramp-capacity-4 = " %{T3}%{T-}"
+animation-discharging-0 = " %{T3}%{T-}"
+animation-discharging-1 = " %{T3}%{T-}"
+animation-discharging-2 = " %{T3}%{T-}"
+animation-discharging-3 = " %{T3}%{T-}"
+animation-discharging-4 = " %{T3}%{T-}"
+animation-charging-0 = " %{T3}%{T-}"
+animation-charging-1 = " %{T3}%{T-}"
+animation-charging-2 = " %{T3}%{T-}"
+animation-charging-3 = " %{T3}%{T-}"
+animation-charging-4 = " %{T3}%{T-}"
+format-charging = "<animation-charging> <label-charging>"
+format-discharging = "<animation-discharging> <label-discharging>"
+format-full = "%{T3}%{T-} <label-full>"
+format-charging-foreground = ${colors.background}
+format-discharging-foreground = ${colors.background}
+format-full-foreground = ${colors.background}
+format-charging-background = ${colors.color13}
+format-discharging-background = ${colors.color13}
+format-full-background = ${colors.color13}
+
+[module/date]
+type = internal/date
+date = %a, %e. %b – %H:%M:%S
+date-alt = %d.%m. - %H:%M
+label = " %date% "
+label-foreground = ${colors.muted}
+label-background = ${colors.background}
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+ramp-0 = " %{T2}%{T-}"
+format = "<ramp> <label> "
+label = %percentage%%
+format-foreground = ${colors.background}
+format-background = ${colors.color4}
+
+[module/title]
+type = internal/xwindow
+format = (<label>)
+label = %title%
+label-maxlen = 35
+
+[module/menu-worklog]
+type = custom/menu
+
+label-open = "  Worklog "
+label-close = " "
+label-separator = " "
+
+label-open-foreground = ${colors.color8}
+
+menu-0-0 = "Add Ticket"
+menu-0-1 = "Show Report"
+menu-0-0-exec = "select_work_ticket.sh"
+menu-0-1-exec = "log_work_report.sh"
+menu-0-0-foreground = ${colors.color2}
+menu-0-1-foreground = ${colors.color6}
+
+[module/cpu-blame]
+type = custom/script
+exec = ps -eo pcpu,comm | sort -k1 -r -n | head -1
+interval = 4
+label-foreground = ${colors.muted}
+

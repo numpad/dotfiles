@@ -1,0 +1,174 @@
+[colors]
+
+color0  = #32302f
+color1  = #fb4934
+color2  = #b8bb26
+color3  = #fabd2f
+color4  = #83a598
+color5  = #d3869b
+color6  = #8ec07c
+color7  = #d5c4a1
+
+color8  = #665c54
+color9  = #fb4934
+color10 = #b8bb26
+color11 = #fabd2f
+color12 = #83a598
+color13 = #d3869b
+color14 = #8ec07c
+color15 = #fbf1c7
+
+[bar/matcha]
+background = ${colors.color0}
+foreground = ${colors.color15}
+border-bottom-color = ${colors.color2}
+border-bottom-size = 0
+wm-restack = bspwm
+bottom = false
+height = 28
+width = 100%
+
+font-0 = "SauceCodePro Nerd Font Mono:style=Regular:size=13;2"
+font-1 = "SauceCodePro Nerd Font Mono:style=Regular:size=13;2"
+font-2 = "SauceCodePro Nerd Font Mono:style=Regular:size=13;2"
+font-3 = "SauceCodePro Nerd Font Mono:style=Regular:size=13;2"
+font-4 = "SauceCodePro Nerd Font Mono:style=Regular:size=14;2"
+padding = 2
+module-margin-right = 2
+
+modules-left = storage memory cpu temperature backlight volume
+modules-right = keys wireless internal_battery battery date time
+modules-center = bspwm
+
+[module/keys]
+type = internal/xkeyboard
+label-layout =
+label-indicator-on-capslock = בּ
+label-indicator-off-capslock = 
+label-indicator-on-scrolllock = 
+label-indicator-off-scrolllock = 
+
+[module/storage]
+type = internal/fs
+interval = 60
+mount-0 = /
+label-mounted =  %free%
+label-unmounted = %mountpoint% not mounted
+
+[module/cpu]
+type = internal/cpu
+label =  %percentage%%
+
+[module/memory]
+type = internal/memory
+label =  %percentage_used%%
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+format = <label>
+format-warn = <label-warn>
+label =  %temperature-c%
+label-warn =  %temperature-c%
+
+[module/volume]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_00_1f.3.analog-stereo
+use-ui-max = true
+format-volume = <label-volume>
+label-volume = 墳 %percentage%%
+label-muted = 婢 %percentage%%
+label-muted-foreground = #90
+
+[module/bspwm]
+type = internal/bspwm
+reverse-scroll = true
+label-focused = 
+label-focused-font = 4
+label-focused-padding = 0
+label-occupied = 
+label-occupied-font = 4
+label-occupied-padding = 0
+label-empty = 
+label-empty-font = 4
+label-empty-padding = 0
+label-urgent = 
+label-urgent-font = 4
+label-urgent-padding = 0
+label-separator = " "
+
+[module/wireless]
+type = internal/network
+interface = wlp4s0
+label-connected = %essid%
+format-connected = <ramp-signal> <label-connected>
+ramp-signal-0 = 直
+label-disconnected = 睊
+format-disconnected = <label-disconnected>
+
+[module/internal_battery]
+type = internal/battery
+battery = BAT0
+adapter = ACAD
+format-charging = <animation-charging> <label-charging>
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 400
+animation-discharging-framerate = 400
+format-discharging = <animation-discharging> <label-discharging>
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+format-full = <label-full>
+
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = ACAD
+format-charging = <animation-charging> <label-charging>
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 400
+animation-discharging-framerate = 400
+format-discharging = <animation-discharging> <label-discharging>
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+format-full = <label-full>
+
+[module/date]
+type = internal/date
+date = %A, %e. %B
+date-alt = %Y-%m-%d
+label =  %date%
+
+[module/time]
+type = internal/date
+interval = 1.0
+time = %H:%M:%S
+time-alt = %H:%M
+label =  %time%
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+format =  <label>
+label = %percentage%%
+
+[module/title]
+type = internal/xwindow
+format = (<label>)
+label = %title%
+label-maxlen = 35
+

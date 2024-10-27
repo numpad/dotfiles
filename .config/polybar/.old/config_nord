@@ -1,0 +1,195 @@
+[colors]
+
+# black
+color0        = #3b4252
+color8        = #4c566a
+# red
+color1        = #bf616a
+color9        = #bf616a
+# green
+color2        = #a3be8c
+color10       = #a3be8c
+# yellow
+color3        = #ebcb8b
+color11       = #ebcb8b
+# blue
+color4        = #81a1c1
+color12       = #81a1c1
+# magenta
+color5        = #b48ead
+color13       = #b48ead
+# cyan
+color6        = #88c0d0
+color14       = #8fbcbb
+# white
+color7        = #e5e9f0
+color15       = #eceff4
+# special
+background    = #2e3440
+muted         = #999ea6
+
+[bar/nord]
+background = ${colors.background}
+foreground = ${colors.color15}
+border-bottom-color = ${colors.background}
+border-bottom-size = 3
+wm-restack = bspwm
+bottom = false
+height = 28
+width = 100%
+
+font-0 = "FiraCode Nerd Font Mono:style=Regular:size=13;4"
+padding = 2
+module-margin-right = 2
+
+modules-left = storage memory cpu temperature backlight volume menu-worklog cpu-blame
+modules-right = keys wireless internal_battery battery date time
+modules-center = bspwm
+
+[module/keys]
+type = internal/xkeyboard
+label-layout =
+label-indicator-on-capslock = בּ
+label-indicator-off-capslock = 
+label-indicator-on-scrolllock = 
+label-indicator-off-scrolllock = 
+label-indicator-on-capslock-foreground = ${colors.color1}
+
+[module/storage]
+type = internal/fs
+interval = 60
+mount-0 = /
+label-mounted =  %free%
+label-unmounted = %mountpoint% not mounted
+label-mounted-foreground = ${colors.muted}
+
+[module/cpu]
+type = internal/cpu
+label =  %percentage%%
+
+[module/memory]
+type = internal/memory
+label =  %percentage_used%%
+label-foreground = ${colors.muted}
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+format = <label>
+format-warn = <label-warn>
+label =  %temperature-c%
+label-warn =  %temperature-c%
+
+[module/volume]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_00_1f.3.analog-stereo
+use-ui-max = true
+format-volume = <label-volume>
+label-volume = 墳 %percentage%%
+label-muted = 婢 %percentage%%
+label-muted-foreground = #90
+
+[module/bspwm]
+type = internal/bspwm
+reverse-scroll = true
+label-focused = 
+label-focused-font = 4
+label-focused-padding = 0
+label-occupied = 
+label-occupied-font = 4
+label-occupied-padding = 0
+label-occupied-foreground = ${colors.muted}
+label-empty = 
+label-empty-font = 4
+label-empty-padding = 0
+label-empty-foreground = ${colors.muted}
+label-urgent = 
+label-urgent-font = 4
+label-urgent-padding = 0
+label-urgent-foreground = ${colors.color1}
+label-separator = " "
+
+[module/wireless]
+type = internal/network
+interface = wlp4s0
+label-connected = %essid%
+format-connected = <ramp-signal> <label-connected>
+ramp-signal-0 = 直
+ramp-signal-foreground = ${colors.muted}
+label-connected-foreground = ${colors.muted}
+label-disconnected = 睊
+format-disconnected = <label-disconnected>
+label-disconnected-foreground = ${colors.color9}
+
+[module/internal_battery]
+type = internal/battery
+battery = BAT0
+adapter = ACAD
+format-charging =  <label-charging>
+format-charging-foreground = ${colors.color10}
+format-discharging =  <label-discharging>
+format-discharging-foreground = ${colors.muted}
+format-full =  <label-full>
+format-full-foreground = ${colors.muted}
+
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = ACAD
+format-charging =  <label-charging>
+format-charging-foreground = ${colors.color10}
+format-discharging =  <label-discharging>
+format-discharging-foreground = ${colors.muted}
+format-full =  <label-full>
+format-full-foreground = ${colors.muted}
+
+[module/date]
+type = internal/date
+date = %A, %e. %B
+date-alt = %Y-%m-%d
+label =  %date%
+label-foreground = ${colors.muted}
+
+[module/time]
+type = internal/date
+interval = 1.0
+time = %H:%M:%S
+time-alt = %H:%M
+label =  %time%
+label-foreground = ${colors.muted}
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+format =  <label>
+label = %percentage%%
+
+[module/title]
+type = internal/xwindow
+format = (<label>)
+label = %title%
+label-maxlen = 35
+
+[module/menu-worklog]
+type = custom/menu
+
+label-open = " Worklog"
+label-close = ""
+label-separator = " "
+
+label-open-foreground = ${colors.muted}
+
+menu-0-0 = "Add Ticket"
+menu-0-1 = "Show Report"
+menu-0-0-exec = "select_work_ticket.sh"
+menu-0-1-exec = "log_work_report.sh"
+menu-0-0-foreground = ${colors.color2}
+menu-0-1-foreground = ${colors.color6}
+
+[module/cpu-blame]
+type = custom/script
+exec = ps -eo pcpu,comm | sort -k1 -r -n | head -1
+interval = 4
+label-foreground = ${colors.muted}
+
