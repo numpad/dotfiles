@@ -1,0 +1,8 @@
+{
+	"clangd.semanticHighlighting": true,
+	"semanticTokens.enable": true,
+	"semanticTokens.filetypes": ["c"],
+  	"clangd.inlayHints.enable": false,
+	"inlayHint.enable": false
+}
+

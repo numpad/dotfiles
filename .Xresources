@@ -7,50 +7,50 @@ Xft.autohint:             false
 Xft.hintstyle:            hintfull
 Xft.lcdfilter:            lcddefault
 
-Xcursor.size: 16
-xterm*vt100*faceName: Fantasque Sans Mono:pixelsize=15:antialias=true:autohint=false:rgba=rgb
-xterm*termName: xterm-256color
+Xcursor.size:          16
+xterm*vt100*faceName:  Fantasque Sans Mono:pixelsize=15:antialias=true:autohint=false:rgba=rgb
+xterm*termName:        xterm-256color
+xterm*metaSendsEscape: true
+XTerm*vt100.translations: #override \
+    Shift Ctrl <Key> C: copy-selection(CLIPBOARD) \n\
+    Shift Ctrl <Key> V: insert-selection(CLIPBOARD)
 
-*internalBorder: 6
-*boldColors:false
+*internalBorder: 3
 
-! Special
-*.foreground:   #d3c6aa
-*.background:   #2f383e
-*.cursorColor:  #a7c080
+! #include ".Xresources_gruvbox"
 
-! Black
-*.color0:       #4f5a5f
-*.color8:       #4f5a5f
+! Gruvbox Medium Dark Colorscheme
+*background: #282828
+*foreground: #ebdbb2
+! Black + DarkGrey
+*color0:  #1d2021
+*color8:  #665c54
+! Red + LightRed
+*color1:  #cc241d
+*color9:  #fb4934
+! Green + LightGreen
+*color2:  #98971a
+*color10: #b8bb26
+! Yellow + LightYellow
+*color3:  #d79921
+*color11: #fabd2f
+! Blue + LightBlue
+*color4:  #458588
+*color12: #83a598
+! Magenta + LightMagenta
+*color5:  #b16286
+*color13: #d3869b
+! Cyan + LightCyan
+*color6:  #689d6a
+*color14: #8ec07c
+! White + LightWhite
+*color7:  #a89984
+*color15: #ebdbb2
 
-! Red
-*.color1:       #e67e80
-*.color9:       #e67e80
+*cursorColor: #fe8019
 
-! Green
-*.color2:       #a7c080
-*.color10:      #a7c080
-
-! Yellow
-*.color3:       #dbbc7f
-*.color11:      #dbbc7f
-
-! Blue
-*.color4:       #7fbbb3
-*.color12:      #7fbbb3
-
-! Magenta
-*.color5:       #d699b6
-*.color13:      #d699b6
-
-! Cyan
-*.color6:       #83c092
-*.color14:      #83c092
-
-! White
-*.color7:       #d3c6aa
-*.color15:      #d3c6aa
-
-! Bold, Italic, Underline
-*.colorBD:      #6c7680
+! XTerm
+XTerm*background: #282828
+XTerm*foreground: #ebdbb2
+XTerm*cursorColor: #ebdbb2
 

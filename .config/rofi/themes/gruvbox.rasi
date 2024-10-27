@@ -1,0 +1,83 @@
+/********************************************************
+
+  [Based on:]
+  Photon-Yellow Theme for Rofi
+  URL: https://github.com/anstellaire/photon-rofi-themes
+
+ ********************************************************/
+
+* {
+    bg:           #282828;
+    bg-border:    #d65d0e;
+    fg:           #ebdbb2;
+    accent-bg:    #32302f;
+    accent-fg:    #eff1f5;
+
+    spacing:          3;
+
+    background-color: @bg;
+}
+
+window {
+    width:            28%;
+    border:           3;
+    padding:          4;
+    background-color: @bg;
+    border-color:     @bg-border;
+}
+
+inputbar {
+    spacing:    0px;
+    padding:    0px 3px 0px 3px;
+    text-color: @fg;
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}
+
+textbox {
+	text-color: @fg;
+	margin: 0px 0em 0px 1em;
+}
+
+prompt {
+	enabled: false;
+    spacing:    0;
+    text-color: @fg;
+}
+
+textbox-prompt-colon {
+    expand:     false;
+    str:        "#";
+    margin:     0px 0.3em 0em 0em;
+    text-color: @fg;
+}
+
+entry {
+    spacing:    4px;
+    text-color: @fg;
+}
+
+listview {
+    fixed-height: 0;
+    spacing:      0px;
+    scrollbar:    false;
+    lines:        5;
+}
+
+element {
+    border:  0;
+    padding: 7px 4px 7px 4px;
+    background-color: @bg;
+    text-color:       @fg;
+}
+
+element.selected {
+    background-color: @accent-bg;
+    text-color:       @accent-fg;
+	border-radius:    0px;
+}
+
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
